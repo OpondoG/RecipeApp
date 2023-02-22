@@ -18,6 +18,9 @@ gem 'puma', '~> 5.0'
 # Added divise for login
 gem 'devise'
 
+# Added cancancan for authorization
+gem 'cancancan'
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
 
