@@ -3,8 +3,8 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    can :manage, Recipe, user: user
-    can :manage, Food, user: user
+    can(:manage, Recipe, user:)
+    can(:manage, Food, user:)
     can :read, :all
   end
 end
