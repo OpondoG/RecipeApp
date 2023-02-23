@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <% @users.each do |user| %>
+    <%= link_to user_path(user), class: "" do %>
+        <h1 class=""><%= user.name %></h1>
+    <% end %>
+  <% end %>
+<% else %>
+  <div class=""><%= link_to 'Sign In', new_user_session_path, class: "" %></div>
+<% end %>
