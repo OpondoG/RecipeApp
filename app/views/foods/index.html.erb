@@ -1,0 +1,32 @@
+<div class="row">
+  <a href="<%= new_user_food_path(current_user) %>" class="btn btn-primary btn block col-sm-3 offset-sm-8">Add New</a>
+</div>
+<div class="row mt-5">
+  <div class="col-md-4 offset-md-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Meausurement Unit</th>
+          <th>Unit Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %> </td>
+            <td><%= food.measurement_unit %> </td>
+            <td>$<%= food.price %> </td>
+            <td>
+              <% if can? :destroy, food  %>
+                <%= link_to "Delete",user_food_path(user_id: current_user.id, id: food.id), class:"btn btn-outline-danger", "data-turbo-method": :delete %></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
