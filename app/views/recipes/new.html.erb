@@ -1,0 +1,51 @@
+<h1 class="mt-4 text-center">Add new Recipe</h1>
+<div class="row mt-5">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+        <%= form_with model: @recipe, url: user_recipes_path, class: 'flex flex-col items-center w-6/12 mx-auto' do |form| %>
+          <% if @recipe.errors.any? %>
+            <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+              <h2><%= pluralize(recipe.errors.count, "error") %> prevent this recipe from being saved:</h2>
+
+              <ul>
+                <% @recipe.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="input-group input-group-outline mb-3 row">
+            <label class="form-label col-sm-3">Name</label>
+            <%= form.text_field :name, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+
+          <div class="input-group input-group-outline mb-3 row">
+            <label class="form-label col-sm-3">Preparation time</label>
+            <%= form.number_field :preparation_time, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+
+          <div class="input-group input-group-outline mb-3 row">
+            <label class="form-label col-sm-3">Cooking time</label>
+            <%= form.number_field :cooking_time, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+
+          <div class="input-group input-group-outline mb-4 row">
+            <label class="form-label col-sm-3">Description</label>
+            <%= form.text_field :description, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+
+          <div class="input-group input-group-outline mb-4 row">
+            <label class="form-label col-sm-3">Public</label>
+            <%= form.check_box :public, class: 'form-check-input col-sm-9' %>
+          </div>
+          <div class="row">
+            <%= form.button "Add Recipe", type: "submit", class: "btn btn-primary btn-block col-md-8 offset-md-2", 'data-ripple-light': true %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
