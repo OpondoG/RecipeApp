@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
     @food = current_user.foods.new(food_params)
 
     if @food.save
-      redirect_to user_foods_url, notice: 'Food was successfully created.'
+      redirect_to foods_url, notice: 'Food was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class FoodsController < ApplicationController
     else
       flash[:error] = 'Error: Food could not be deleted'
     end
-    redirect_to user_foods_url
+    redirect_to foods_url
   end
 
   private
