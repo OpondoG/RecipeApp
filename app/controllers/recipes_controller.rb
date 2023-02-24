@@ -2,9 +2,11 @@ class RecipesController < ApplicationController
   def index
     @recipes = current_user.recipes
   end
+
   def new
     @recipe = Recipe.new
   end
+
   def create
     @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
@@ -29,6 +31,7 @@ class RecipesController < ApplicationController
     end
     redirect_to user_food_recipes_url
   end
+
   def recipe_params
     params.require(:recipe).permit(:user_id, :name, :preparation_time, :cooking_time, :description, :public)
   end
