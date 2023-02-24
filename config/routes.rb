@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   root "users#index"
   resources :users, only: [:index] do
     resources :foods, only: [:index, :new, :create, :destroy]
-    resources :public_recipes, only: [:index]
     resources :recipes, only: [:index, :new, :show, :create, :destroy] do
       resources :recipe_foods, only: [:new, :edit, :create, :update, :destroy]
       resources :shopping_lists, only: [:index]
     end
   end
+  resources :public_recipes, only: [:index]
 end
