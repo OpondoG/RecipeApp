@@ -1,0 +1,22 @@
+<div class=container>
+  <h1 class="text-center my-4">Public Recipes</h1>
+  <% if @recipes.empty? %>
+    <p>No public recipes have been added yet</p>
+  <% end %>
+  <% @recipes.each do |recipe| %>
+    <% if recipe.public %>
+      <div class="border border-gray border-1 bg-body-tertiary py-4 px-5 mb-4 d-flex">
+        <div class="col-5">
+          <h4><%= recipe.name %></h4> 
+          <h6>By: <%= recipe.user.name %></h6> 
+        </div>
+        <div>
+          <p><%= "Total food items: #{recipe.total_quantity}"%></p>
+          <p><%= "Total price: $#{recipe.total_price}"%></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="d-flex justify-content-center align-items-center mb-4">
+  </div>
+</div>

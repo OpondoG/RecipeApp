@@ -1,6 +1,9 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @recipes = current_user.recipes
+    @user_id = current_user.id
   end
 
   def new
@@ -30,7 +33,7 @@ class RecipesController < ApplicationController
     else
       flash[:error] = 'Error: Recipe could not be removed'
     end
-    redirect_to user_food_recipes_url
+    redirect_to user_recipes_url
   end
 
   def recipe_params
