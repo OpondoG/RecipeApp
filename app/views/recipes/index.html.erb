@@ -3,12 +3,15 @@
 </div>
 <% @recipes.each do |recipe| %>
   <div class="card mb-3">
+
   <div class="row p-3">
     <a href="<%= user_recipe_path(:user_id => current_user.id, :id => recipe.id) %>">
+
       <div class="col-sm-3">
         <h2> Recipe <%= recipe.id %> </h2>
         <%= link_to "Delete", user_recipe_path(user_id: current_user.id, id: recipe.id), class: "btn btn-outline-danger", "data-turbo-method": :delete %>
       </div>
+
       <div class="col-sm-9">
         <p> <%= recipe.description %> </p>
       </div>
@@ -16,3 +19,4 @@
     </div>
     </div>
     <% end %>
+
