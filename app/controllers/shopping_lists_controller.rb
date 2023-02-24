@@ -1,5 +1,5 @@
 class ShoppingListsController < ApplicationController
-   def index
+  def index
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_foods = @recipe.recipe_foods.includes(:food).order(:id)
 
