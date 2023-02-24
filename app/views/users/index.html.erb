@@ -1,4 +1,6 @@
 <% @users.each do |user| %>
-  <h1 class=""><%= user.id %></h1>
-  <h1 class=""><%= user.name %></h1>
+    <div class="card mb-4 p-3 border border-gray border-2 shadow-lg bg-body-tertiary text-primary">
+    <h1 class="">User ID: <%= user.id %></h1>
+    <h1 class="">User Name: <%= user.name %></h1>
+  </div>
 <% end %>

@@ -18,7 +18,7 @@
 
 <div class="row my-3">
   <div class="col-md-4">
-    <%= link_to "Generate Shopping List", new_user_recipe_path(user_id: current_user.id), class: "btn btn-success w-100" %>
+    <%= link_to "Generate Shopping List", user_recipe_shopping_lists_path(current_user, @recipe), class: "btn btn-success w-100" %>
   </div>  
   <div class="col-md-4 offset-md-4">
     <%= link_to "Add Ingredient", new_user_recipe_recipe_food_path(current_user, @recipe), class: "btn btn-info w-100" %>
