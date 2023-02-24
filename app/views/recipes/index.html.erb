@@ -1,0 +1,16 @@
+<div class="row">
+<%= link_to "Create", new_user_recipe_path(user_id: current_user.id), class: "btn btn-outline-success mb-4 col-sm-3 offset-sm-9" %>
+</div>
+<% @recipes.each do |recipe| %>
+  <div class="card mb-3">
+    <div class="row p-3">
+      <div class="col-sm-3">
+        <h2> Recipe <%= recipe.id %> </h2>
+        <%= link_to "Delete", user_recipe_path(user_id: current_user.id, id: recipe.id), class: "btn btn-outline-danger", "data-turbo-method": :delete %>
+      </div>
+      <div class="col-sm-3">
+        <p> <%= recipe.description %> </p>
+      </div>
+    </div>
+  </div>
+<% end %>
