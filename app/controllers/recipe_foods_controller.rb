@@ -31,15 +31,12 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
-  def destroy
-    @recipe_food = RecipeFood.find(params[:id])
-    @recipe = @recipe_food.recipe
-    if @recipe_food.destroy
-      flash[:success] = 'Recipe food was successfully removed.'
-    else
-      flash.now[:error] = 'Error: Recipe food could not be removed'
-    end
-    redirect_to user_recipe_url(current_user, @recipe)
+  if @recipe.destroy
+    flash[:success] = 'Recipe was successfully removed.'
+    redirect_to recipes_url
+  else
+    flash[:error] = 'Error: Recipe could not be removed'
+    redirect_to user_session_url
   end
 
   private

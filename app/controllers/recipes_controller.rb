@@ -33,7 +33,8 @@ class RecipesController < ApplicationController
     else
       flash[:error] = 'Error: Recipe could not be removed'
     end
-    redirect_to user_recipes_url
+
+    redirect_to user_recipes_path(user_id: current_user.id)
   end
 
   def recipe_params
