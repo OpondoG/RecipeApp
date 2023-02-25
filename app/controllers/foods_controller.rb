@@ -29,6 +29,11 @@ class FoodsController < ApplicationController
     end
     redirect_to foods_url
   end
+  
+
+  def show
+    @food = Food.find(params[:id])
+  end
 
   private
 
