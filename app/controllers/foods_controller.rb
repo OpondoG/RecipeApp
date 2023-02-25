@@ -27,10 +27,9 @@ class FoodsController < ApplicationController
     else
       flash[:error] = 'Error: Food could not be deleted'
     end
-
     redirect_to foods_url
   end
-  
+
   def show
     @food = Food.find(params[:id])
   end
