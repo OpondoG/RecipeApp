@@ -20,16 +20,18 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food = Food.find(params[:id])
-  
-    if @food.destroy
-      flash[:success] = 'Food was successfully deleted.'
-    else
-      flash[:error] = 'Error: Food could not be deleted'
+    @food = Food.find_by(id: params[:id])
+
+    respond_to do |format|
+      if @food.destroy
+        format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
+      else
+        format.html { redirect_to foods_url, error: 'Failed to Delete the Food.' }
+      end
     end
-  
-    redirect_to foods_url
   end
+  
+    
 
   def show
     @food = Food.find(params[:id])
