@@ -88,7 +88,7 @@ After you're finished please remove all the comments and instructions!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🛠 Live Demo <a name="live-demo"></a>
-[Recipe App on Rails](https://recipeapp-hs5c.onrender.com)
+[Comming soon]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
