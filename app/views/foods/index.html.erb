@@ -1,0 +1,38 @@
+<div class="row">
+  <a href="<%= new_food_path %>" class="btn btn-primary btn block col-sm-3 offset-sm-8">Add New</a>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-4 offset-md-4">
+    <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Measurement Unit</th>
+          <th>Unit Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %> </td>
+            <td><%= food.measurement_unit %> </td>
+            <td>$<%= food.price %> </td>
+            <td>
+              <% if can? :destroy, food %>
+                <%= button_to "Delete", food_path(food.id), class:"btn btn-outline-danger", method: :delete %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<h2 class="mt-4 text-center">Add New Food</h2>
+<div class="row mt-5">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+        <%= form_with model: @food, url: foods_path, class: 'flex flex-col items-center w-6/12 mx-auto' do |form| %>
+
+          <div class="input-group input-group-outline mb-3 row">
+            <label class="form-label col-sm-3">Name</label>
+            <%= form.text_field :name, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+
+          <div class="input-group input-group-outline mb-3 row">
+            <label class="form-label col-sm-3">Measurement Unit</label>
+            <%= form.text_field :measurement_unit, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+
+          <div class="input-group input-group-outline mb-3 row">
+            <label class="form-label col-sm-3">Unit Price</label>
+            <%= form.number_field :price, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+
+          <div class="input-group input-group-outline mb-4 row">
+            <label class="form-label col-sm-3">Quantity</label>
+            <%= form.number_field :quantity, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+          <div class="row">
+            <%= form.button "Create Food", type: "submit", class: "btn btn-primary btn-block col-md-8 offset-md-2", 'data-ripple-light': true %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

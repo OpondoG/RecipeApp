@@ -1,0 +1,23 @@
+<h1 class="mt-4 text-center">Edit New Ingredient</h1>
+<div class="row mt-5">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+        <%= form_with model: @recipe_food, url: user_recipe_recipe_food_path, class: 'flex flex-col items-center w-6/12 mx-auto' do |form| %>
+          <div class="input-group input-group-outline mb-3 row">
+            <label class="form-label col-sm-3">Quantity</label>
+            <%= form.number_field :quantity, class: 'form-control focus:border-blue-600 col-sm-9' %>
+          </div>
+          <div class="input-group input-group-outline mb-3 row">
+            <label class="form-label col-sm-3">Food</label>
+             <%= form.select :food_id, current_user.foods.order(name: :asc).map { |f| [f.name, f.id]}, {include_blank: true}, class: "form-control px-4 " %>
+          </div>
+          <div class="row">
+            <%= form.button "Update Ingredient", type: "submit", class: "btn btn-success btn-block col-md-8 offset-md-2", 'data-ripple-light': true %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
